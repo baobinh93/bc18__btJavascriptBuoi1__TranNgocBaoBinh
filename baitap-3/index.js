@@ -15,12 +15,14 @@ const submitBtn = document.getElementById("submitBtn");
 function calculateVND(usd) {
   return usd * 23500;
 }
-
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
 submitBtn.addEventListener("click", function () {
   let firstNum = firstNumInputEl.value;
 
   let result = calculateVND(firstNum);
-  resultEl.value = result;
+  resultEl.value = formatNumber(result);
 
   console.log("Kết quả là:", result);
 });
